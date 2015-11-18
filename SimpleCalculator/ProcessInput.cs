@@ -18,7 +18,7 @@ namespace SimpleCalculator
         {
             try
             {
-                string newInput = Input.Split(' ')[0];
+                string newInput = Input.Split(GetOperator())[0].TrimEnd();
                 return int.Parse(newInput);
             }
             catch
@@ -31,7 +31,7 @@ namespace SimpleCalculator
         {
             try
             {
-                string newInput = Input.Split(' ')[2];
+                string newInput = Input.Split(GetOperator())[1].TrimStart();
                 return int.Parse(newInput);
             }
             catch
@@ -45,10 +45,17 @@ namespace SimpleCalculator
             try
             {
                 string newInput = Input.Split(' ')[1];
-                char op = char.Parse(newInput);
-                if(op == '+' || op == '-' || op == '*' || op == '/' || op == '%')
+                List<char> op = new List<char>();
+                for (int i = 0; i < Input.Length; i++)
                 {
-                    return op;
+                    if (Input[i] == '+' || Input[i] == '-' || Input[i] == '*' || Input[i] == '/' || Input[i] == '%')
+                    {
+                        op.Add(Input[i]);
+                    }
+                }
+                if(op.Count == 1)
+                {
+                    return op[0];
                 }
                 else
                 {

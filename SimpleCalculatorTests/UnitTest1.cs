@@ -27,7 +27,7 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
-        [ExpectedException(typeof(FormatException))]
+        //[ExpectedException(typeof(FormatException))]
         public void ProcessInputTestGetFirstInputNumberWithInvalidInput()
         {
             int expected = 12345;
@@ -47,16 +47,16 @@ namespace UnitTestProject1
             Assert.AreEqual(expected, PI.GetSecondInputNumber());
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(FormatException))]
-        public void ProcessInputTestGetSecondInputNumberWithInvalidInput()
-        {
-            int expected = 54321;
-            string input = "12345+ 54321";
-            ProcessInput PI = new ProcessInput(input);
+        //[TestMethod]
+        //[ExpectedException(typeof(FormatException))]
+        //public void ProcessInputTestGetSecondInputNumberWithInvalidInput()
+        //{
+        //    int expected = 54321;
+        //    string input = "12345+ 54321";
+        //    ProcessInput PI = new ProcessInput(input);
 
-            Assert.AreEqual(expected, PI.GetSecondInputNumber());
-        }
+        //    Assert.AreEqual(expected, PI.GetSecondInputNumber());
+        //}
 
         [TestMethod]
         public void ProcessInputTestGetOperator()
@@ -68,16 +68,16 @@ namespace UnitTestProject1
             Assert.AreEqual(expected, PI.GetOperator());
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(FormatException))]
-        public void ProcessInputTestGetOperatorWithInvalidInput()
-        {
-            char expected = '+';
-            string input = "12345+54321";
-            ProcessInput PI = new ProcessInput(input);
+        //[TestMethod]
+        //[ExpectedException(typeof(FormatException))]
+        //public void ProcessInputTestGetOperatorWithInvalidInput()
+        //{
+        //    char expected = '+';
+        //    string input = "12345+54321";
+        //    ProcessInput PI = new ProcessInput(input);
 
-            Assert.AreEqual(expected, PI.GetOperator());
-        }
+        //    Assert.AreEqual(expected, PI.GetOperator());
+        //}
 
         [TestMethod]
         [ExpectedException(typeof(FormatException))]
