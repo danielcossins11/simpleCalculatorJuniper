@@ -86,5 +86,60 @@ namespace UnitTestProject1
 
             Assert.AreEqual(expected, PI.GetOperator());
         }
+
+        [TestMethod]
+        public void EvaluateTestOperateWithAdd()
+        {
+            string input = "1 + 1";
+            ProcessInput PI = new ProcessInput(input);
+            Evaluate ev = new Evaluate(PI.GetFirstInputNumber(), PI.GetOperator(), PI.GetSecondInputNumber());
+            int expected = 2;
+
+            Assert.AreEqual(expected, ev.Operate());
+        }
+
+        [TestMethod]
+        public void EvaluateTestOperateWithSubtract()
+        {
+            string input = "2 - 1";
+            ProcessInput PI = new ProcessInput(input);
+            Evaluate ev = new Evaluate(PI.GetFirstInputNumber(), PI.GetOperator(), PI.GetSecondInputNumber());
+            int expected = 1;
+
+            Assert.AreEqual(expected, ev.Operate());
+        }
+
+        [TestMethod]
+        public void EvaluateTestOperateWithMultiply()
+        {
+            string input = "2 * 3";
+            ProcessInput PI = new ProcessInput(input);
+            Evaluate ev = new Evaluate(PI.GetFirstInputNumber(), PI.GetOperator(), PI.GetSecondInputNumber());
+            int expected = 6;
+
+            Assert.AreEqual(expected, ev.Operate());
+        }
+
+        [TestMethod]
+        public void EvaluateTestOperateWithDivide()
+        {
+            string input = "9 / 3";
+            ProcessInput PI = new ProcessInput(input);
+            Evaluate ev = new Evaluate(PI.GetFirstInputNumber(), PI.GetOperator(), PI.GetSecondInputNumber());
+            int expected = 3;
+
+            Assert.AreEqual(expected, ev.Operate());
+        }
+
+        [TestMethod]
+        public void EvaluateTestOperateWithModulus()
+        {
+            string input = "9 % 3";
+            ProcessInput PI = new ProcessInput(input);
+            Evaluate ev = new Evaluate(PI.GetFirstInputNumber(), PI.GetOperator(), PI.GetSecondInputNumber());
+            int expected = 0;
+
+            Assert.AreEqual(expected, ev.Operate());
+        }
     }
 }
