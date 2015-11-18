@@ -44,6 +44,27 @@ namespace UnitTestProject1
             ProcessInput PI = new ProcessInput(input);
 
             Assert.AreEqual(expected, PI.GetOperator());
+
+        }
+
+        [TestMethod]
+        public void ProcessInputTestValidInputTrue()
+        {
+            bool expected = true;
+            string input = "12345 + 54321";
+            ProcessInput PI = new ProcessInput(input);
+
+            Assert.AreEqual(expected, PI.ValidInput());
+        }
+
+        [TestMethod]
+        public void ProcessInputTestValidInputFalse()
+        {
+            bool expected = false;
+            string input = "12345 +";
+            ProcessInput PI = new ProcessInput(input);
+
+            Assert.AreEqual(expected, PI.ValidInput());
         }
     }
 }

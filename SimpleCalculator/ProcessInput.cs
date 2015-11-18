@@ -14,22 +14,56 @@ namespace SimpleCalculator
             Input = input;
         }
 
+        public bool ValidInput()
+        {
+            string[] newStringArr = Input.Split(' ');
+            if(newStringArr.Length == 3)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public int GetFirstInputNumber()
         {
-            string newInput = Input.Split(' ')[0];
-            return int.Parse(newInput);
+            try
+            {
+                string newInput = Input.Split(' ')[0];
+                return int.Parse(newInput);
+            }
+            catch
+            {
+                throw new FormatException();
+            }
         }
 
         public int GetSecondInputNumber()
         {
-            string newInput = Input.Split(' ')[2];
-            return int.Parse(newInput);
+            try
+            {
+                string newInput = Input.Split(' ')[2];
+                return int.Parse(newInput);
+            }
+            catch
+            {
+                throw new FormatException();
+            }
         }
 
         public char GetOperator()
         {
-            string newInput = Input.Split(' ')[1];
-            return char.Parse(newInput);
+            try
+            {
+                string newInput = Input.Split(' ')[1];
+                return char.Parse(newInput);
+            }
+            catch
+            {
+                throw new FormatException();
+            }
         }
     }
 }
