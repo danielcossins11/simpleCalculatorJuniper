@@ -11,16 +11,18 @@ namespace SimpleCalculator
         static void Main(string[] args)
         {
             Console.WriteLine("Calculator");
-            string input = Console.ReadLine();
-            ProcessInput PI = new ProcessInput(input);
-            while(true)
+            int count = 0;
+            string input;
+            while (true)
             {
+                Console.Write("[" + count + "]> ");
                 input = Console.ReadLine();
                 if(input == "exit" || input == "quit")
                 {
                     Console.WriteLine("loggin out");
                     break;
                 }
+                count++;
             }
         }
     }

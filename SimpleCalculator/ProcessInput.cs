@@ -44,7 +44,6 @@ namespace SimpleCalculator
         {
             try
             {
-                string newInput = Input.Split(' ')[1];
                 List<char> op = new List<char>();
                 for (int i = 0; i < Input.Length; i++)
                 {
