@@ -78,5 +78,16 @@ namespace UnitTestProject1
 
             Assert.AreEqual(expected, PI.GetOperator());
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(FormatException))]
+        public void ProcessInputTestGetOperatorWithInvalidInput2()
+        {
+            char expected = '+';
+            string input = "12345 = 54321";
+            ProcessInput PI = new ProcessInput(input);
+
+            Assert.AreEqual(expected, PI.GetOperator());
+        }
     }
 }

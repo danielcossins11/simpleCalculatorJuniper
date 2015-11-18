@@ -45,7 +45,15 @@ namespace SimpleCalculator
             try
             {
                 string newInput = Input.Split(' ')[1];
-                return char.Parse(newInput);
+                char op = char.Parse(newInput);
+                if(op == '+' || op == '-' || op == '*' || op == '/' || op == '%')
+                {
+                    return op;
+                }
+                else
+                {
+                    throw new FormatException();
+                }
             }
             catch
             {
