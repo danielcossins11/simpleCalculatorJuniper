@@ -25,5 +25,15 @@ namespace UnitTestProject1
 
             Assert.AreEqual(expected, PI.GetFirstInputNumber());
         }
+
+        [TestMethod]
+        public void ProcessInputTestGetSecondInputNumber()
+        {
+            int expected = 54321;
+            string input = "12345 + 54321";
+            ProcessInput PI = new ProcessInput(input);
+
+            Assert.AreEqual(expected, PI.GetSecondInputNumber());
+        }
     }
 }

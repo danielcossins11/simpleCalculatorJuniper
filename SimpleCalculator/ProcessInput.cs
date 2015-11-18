@@ -16,20 +16,14 @@ namespace SimpleCalculator
 
         public int GetFirstInputNumber()
         {
-            int num;
-            StringBuilder sb = new StringBuilder();
-            string newInput;
-            for(int i=0; i<Input.Length; i++)
-            {
-                if(Input[i] == ' ')
-                {
-                    break;
-                }
-                sb.Append(Input[i]);
-            }
-            newInput = sb.ToString();
-            num = int.Parse(newInput);
-            return num;
+            string newInput = Input.Split(' ')[0];
+            return int.Parse(newInput);
+        }
+
+        public int GetSecondInputNumber()
+        {
+            string newInput = Input.Split(' ')[2];
+            return int.Parse(newInput);
         }
     }
 }
