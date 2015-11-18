@@ -20,7 +20,18 @@ namespace UnitTestProject1
         public void ProcessInputTestGetFirstInputNumber()
         {
             int expected = 12345;
-            string input = "12345 ";
+            string input = "12345 + 54321";
+            ProcessInput PI = new ProcessInput(input);
+
+            Assert.AreEqual(expected, PI.GetFirstInputNumber());
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(FormatException))]
+        public void ProcessInputTestGetFirstInputNumberWithInvalidInput()
+        {
+            int expected = 12345;
+            string input = "12345+ 54321";
             ProcessInput PI = new ProcessInput(input);
 
             Assert.AreEqual(expected, PI.GetFirstInputNumber());
@@ -37,6 +48,17 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
+        [ExpectedException(typeof(FormatException))]
+        public void ProcessInputTestGetSecondInputNumberWithInvalidInput()
+        {
+            int expected = 54321;
+            string input = "12345+ 54321";
+            ProcessInput PI = new ProcessInput(input);
+
+            Assert.AreEqual(expected, PI.GetSecondInputNumber());
+        }
+
+        [TestMethod]
         public void ProcessInputTestGetOperator()
         {
             char expected = '+';
@@ -44,27 +66,17 @@ namespace UnitTestProject1
             ProcessInput PI = new ProcessInput(input);
 
             Assert.AreEqual(expected, PI.GetOperator());
-
         }
 
         [TestMethod]
-        public void ProcessInputTestValidInputTrue()
+        [ExpectedException(typeof(FormatException))]
+        public void ProcessInputTestGetOperatorWithInvalidInput()
         {
-            bool expected = true;
-            string input = "12345 + 54321";
+            char expected = '+';
+            string input = "12345+54321";
             ProcessInput PI = new ProcessInput(input);
 
-            Assert.AreEqual(expected, PI.ValidInput());
-        }
-
-        [TestMethod]
-        public void ProcessInputTestValidInputFalse()
-        {
-            bool expected = false;
-            string input = "12345 +";
-            ProcessInput PI = new ProcessInput(input);
-
-            Assert.AreEqual(expected, PI.ValidInput());
+            Assert.AreEqual(expected, PI.GetOperator());
         }
     }
 }

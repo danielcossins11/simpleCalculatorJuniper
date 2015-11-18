@@ -14,19 +14,6 @@ namespace SimpleCalculator
             Input = input;
         }
 
-        public bool ValidInput()
-        {
-            string[] newStringArr = Input.Split(' ');
-            if(newStringArr.Length == 3)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
         public int GetFirstInputNumber()
         {
             try
