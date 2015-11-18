@@ -25,5 +25,11 @@ namespace SimpleCalculator
             string newInput = Input.Split(' ')[2];
             return int.Parse(newInput);
         }
+
+        public char GetOperator()
+        {
+            string newInput = Input.Split(' ')[1];
+            return char.Parse(newInput);
+        }
     }
 }
