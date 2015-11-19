@@ -76,6 +76,7 @@ namespace SimpleCalculator
                 IsGettingConstant = true;
                 return char.Parse(constantInput);
             }
+
             string newInput = Input.Split(GetOperator())[0].Trim();
             char op = char.Parse(newInput);
             if (Char.IsLetter(op))
@@ -86,6 +87,19 @@ namespace SimpleCalculator
             {
                 throw new FormatException();
             }
+        }
+
+        public List<char> GetConstantInEquation()
+        {
+            List<char> constList = new List<char>();
+            for(int i=0; i<Input.Length; i++)
+            {
+                if (Char.IsLetter(Input[i]))
+                {
+                    constList.Add(Input[i]);
+                }
+            }
+            return constList;
         }
     }
 }

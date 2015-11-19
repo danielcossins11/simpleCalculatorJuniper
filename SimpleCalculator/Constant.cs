@@ -32,5 +32,17 @@ namespace SimpleCalculator
                 throw new ArgumentOutOfRangeException();
             }
         }
+
+        public bool IsInList(char constant)
+        {
+            if (Constants.ContainsKey(constant))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

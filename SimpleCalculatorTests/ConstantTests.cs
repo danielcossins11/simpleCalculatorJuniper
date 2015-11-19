@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SimpleCalculator;
+using System.Collections.Generic;
 
 namespace SimpleCalculatorTests
 {
@@ -76,6 +77,25 @@ namespace SimpleCalculatorTests
             char expected = 'x';
 
             Assert.AreEqual(expected, PI.GetConstant());
+        }
+
+        [TestMethod]
+        public void ProcessInputTestGetConstantInEquation()
+        {
+            string input = "x = y + z";
+            ProcessInput PI = new ProcessInput(input);
+            List<char> expected = new List<char>() { 'x', 'y', 'z' };
+
+            CollectionAssert.AreEqual(expected, PI.GetConstantInEquation());
+        }
+
+        [TestMethod]
+        public void ConstantTestIsInList()
+        {
+            Constant constant = new Constant();
+            constant.AddToConstants('x', 12);
+
+            Assert.AreEqual(false, constant.IsInList('x'));
         }
     }
 }
