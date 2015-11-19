@@ -40,5 +40,15 @@ namespace SimpleCalculatorTests
 
             Assert.AreEqual(expectedNum, constant.Constants[expectedConst]);
         }
+
+        [TestMethod]
+        public void ConstantTestIfCanAddToDictionaryIfConstantAlreadyExists()
+        {
+            Constant constant = new Constant();
+            constant.AddToConstants('x', 5);
+            constant.AddToConstants('x', 10);
+
+            Assert.AreEqual(5, constant.Constants['x']);
+        }
     }
 }

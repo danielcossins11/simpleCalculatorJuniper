@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,7 +31,14 @@ namespace SimpleCalculator
             //{
             //    Constants.Add(constant, value);
             //}
-            Constants.Add(constant, value);
+
+            try {
+                var test = Constants[constant];
+            }
+            catch
+            {
+                Constants.Add(constant, value);
+            }
         }
     }
 }
