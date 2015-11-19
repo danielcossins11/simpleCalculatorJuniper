@@ -8,9 +8,12 @@ namespace SimpleCalculator
 {
     public class Constant
     {
-        public Constant()
+        public char Name { get; set; }
+        public int Number { get; set; }
+        public Constant(char chrName, int numName)
         {
-
+            Name = chrName;
+            Number = numName;
         }
     }
 }
