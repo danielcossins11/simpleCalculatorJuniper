@@ -14,7 +14,7 @@ namespace SimpleCalculator
         public void AddToConstants(char constant, int value)
         {
             try {
-                var test = Constants[constant];
+                var test = Constants[Char.ToLower(constant)];
             }
             catch
             {
@@ -25,7 +25,7 @@ namespace SimpleCalculator
         public int GetValueOf(char constant)
         {
             try {
-                return Constants[constant];
+                return Constants[Char.ToLower(constant)];
             }
             catch
             {
