@@ -19,7 +19,7 @@ namespace SimpleCalculator
         {
             try
             {
-                string newInput = Input.Split(GetOperator())[0].TrimEnd();
+                string newInput = Input.Split(GetOperator())[0].Trim();
                 return int.Parse(newInput);
             }
             catch
@@ -32,7 +32,7 @@ namespace SimpleCalculator
         {
             try
             {
-                string newInput = Input.Split(GetOperator())[1].TrimStart();
+                string newInput = Input.Split(GetOperator())[1].Trim();
                 return int.Parse(newInput);
             }
             catch
@@ -76,7 +76,7 @@ namespace SimpleCalculator
                 IsGettingConstant = true;
                 return char.Parse(constantInput);
             }
-            string newInput = Input.Split(GetOperator())[0].TrimEnd();
+            string newInput = Input.Split(GetOperator())[0].Trim();
             char op = char.Parse(newInput);
             if (Char.IsLetter(op))
             {

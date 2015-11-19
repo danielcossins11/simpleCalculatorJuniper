@@ -13,6 +13,7 @@ namespace SimpleCalculator
             Console.WriteLine("Calculator");
             int count = 0;
             string input;
+            Constant constant = new Constant();
             while (true)
             {
                 Console.Write("[" + count + "]> ");
@@ -22,15 +23,31 @@ namespace SimpleCalculator
                     Console.WriteLine("loggin out");
                     break;
                 }
+                ProcessInput PI = new ProcessInput(input);
                 try
                 {
-                    ProcessInput PI = new ProcessInput(input);
                     Evaluate ev = new Evaluate(PI.GetFirstInputNumber(), PI.GetOperator(), PI.GetSecondInputNumber());
                     Console.WriteLine("   = " + ev.Operate());
                 }
                 catch
                 {
-                    Console.WriteLine("oops!");
+                    PI.GetConstant();
+                    if (PI.IsGettingConstant)
+                    {
+                        Console.WriteLine(PI.GetConstant() + "   = " + constant.GetValueOf(PI.GetConstant()));
+                    }
+                    else
+                    {
+                        try
+                        {
+                            constant.AddToConstants(PI.GetConstant(), PI.GetSecondInputNumber());
+                            Console.WriteLine("    set " + PI.GetConstant() + " as " + constant.GetValueOf(PI.GetConstant()));
+                        }
+                        catch
+                        {
+                            Console.WriteLine("oops!");
+                        }
+                    }
                 }
                 count++;
             }
