@@ -47,7 +47,14 @@ namespace SimpleCalculator
             List<int> values = new List<int>();
             for(int i=0; i<constantsList.Count; i++)
             {
-                values.Add(GetValueOf(constantsList[i]));
+                if (IsInList(constantsList[i]))
+                {
+                    values.Add(GetValueOf(constantsList[i]));
+                }
+                else
+                {
+
+                }
             }
             return values;
         }

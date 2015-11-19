@@ -16,7 +16,7 @@ namespace SimpleCalculator
             Constant constant = new Constant();
             while (true)
             {
-                Console.Write("[" + count + "]> ");
+                Console.Write("[{0}]> ", count);
                 input = Console.ReadLine();
                 if(input == "exit" || input == "quit")
                 {
@@ -48,6 +48,11 @@ namespace SimpleCalculator
                             Console.WriteLine("oops!");
                         }
                     }
+                    //var constants = constant.GetValuesOfAllConstants(PI.GetAllConstantsInEquation());
+                    //for(int i=0; i<constants.Count; i++)
+                    //{
+
+                    //}
                 }
                 count++;
             }

@@ -45,22 +45,14 @@ namespace SimpleCalculator
         {
             try
             {
-                List<char> op = new List<char>();
                 for (int i = 0; i < Input.Length; i++)
                 {
                     if (Input[i] == '+' || Input[i] == '-' || Input[i] == '*' || Input[i] == '/' || Input[i] == '%' || Input[i] == '=')
                     {
-                        op.Add(Input[i]);
+                        return Input[i];
                     }
                 }
-                if(op.Count == 1)
-                {
-                    return op[0];
-                }
-                else
-                {
-                    throw new FormatException();
-                }
+                throw new FormatException();
             }
             catch
             {
@@ -89,7 +81,7 @@ namespace SimpleCalculator
             }
         }
 
-        public List<char> GetConstantInEquation()
+        public List<char> GetAllConstantsInEquation()
         {
             List<char> constList = new List<char>();
             for(int i=0; i<Input.Length; i++)

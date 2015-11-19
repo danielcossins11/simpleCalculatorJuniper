@@ -86,7 +86,7 @@ namespace SimpleCalculatorTests
             ProcessInput PI = new ProcessInput(input);
             List<char> expected = new List<char>() { 'x', 'y', 'z' };
 
-            CollectionAssert.AreEqual(expected, PI.GetConstantInEquation());
+            CollectionAssert.AreEqual(expected, PI.GetAllConstantsInEquation());
         }
 
         [TestMethod]
