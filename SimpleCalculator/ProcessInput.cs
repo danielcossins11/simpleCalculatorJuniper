@@ -47,7 +47,7 @@ namespace SimpleCalculator
                 List<char> op = new List<char>();
                 for (int i = 0; i < Input.Length; i++)
                 {
-                    if (Input[i] == '+' || Input[i] == '-' || Input[i] == '*' || Input[i] == '/' || Input[i] == '%')
+                    if (Input[i] == '+' || Input[i] == '-' || Input[i] == '*' || Input[i] == '/' || Input[i] == '%' || Input[i] == '=')
                     {
                         op.Add(Input[i]);
                     }
@@ -62,6 +62,20 @@ namespace SimpleCalculator
                 }
             }
             catch
+            {
+                throw new FormatException();
+            }
+        }
+
+        public char GetConstant()
+        {
+            string newInput = Input.Split(GetOperator())[0].TrimEnd();
+            char op = char.Parse(newInput);
+            if (Char.IsLetter(op))
+            {
+                return op;
+            }
+            else
             {
                 throw new FormatException();
             }
