@@ -95,7 +95,8 @@ namespace SimpleCalculatorTests
             Constant constant = new Constant();
             constant.AddToConstants('x', 12);
 
-            Assert.AreEqual(false, constant.IsInList('x'));
+            Assert.AreEqual(true, constant.IsInList('x'));
+            Assert.AreEqual(false, constant.IsInList('y'));
         }
     }
 }
