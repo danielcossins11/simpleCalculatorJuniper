@@ -22,10 +22,16 @@ namespace SimpleCalculator
                     Console.WriteLine("loggin out");
                     break;
                 }
-                ProcessInput PI = new ProcessInput(input);
-                Evaluate ev = new Evaluate(PI.GetFirstInputNumber(), PI.GetOperator(), PI.GetSecondInputNumber());
-                Console.WriteLine("   = " + ev.Operate());
-
+                try
+                {
+                    ProcessInput PI = new ProcessInput(input);
+                    Evaluate ev = new Evaluate(PI.GetFirstInputNumber(), PI.GetOperator(), PI.GetSecondInputNumber());
+                    Console.WriteLine("   = " + ev.Operate());
+                }
+                catch
+                {
+                    Console.WriteLine("oops!");
+                }
                 count++;
             }
         }
