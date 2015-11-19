@@ -13,10 +13,7 @@ namespace SimpleCalculator
 
         public void AddToConstants(char constant, int value)
         {
-            try {
-                var test = Constants[Char.ToLower(constant)];
-            }
-            catch
+            if (!IsInList(constant))
             {
                 Constants.Add(constant, value);
             }
@@ -43,6 +40,16 @@ namespace SimpleCalculator
             {
                 return false;
             }
+        }
+
+        public List<int> GetValuesOfAllConstants(List<char> constantsList)
+        {
+            List<int> values = new List<int>();
+            for(int i=0; i<constantsList.Count; i++)
+            {
+                values.Add(GetValueOf(constantsList[i]));
+            }
+            return values;
         }
     }
 }

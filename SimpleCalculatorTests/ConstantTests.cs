@@ -98,5 +98,19 @@ namespace SimpleCalculatorTests
             Assert.AreEqual(true, constant.IsInList('x'));
             Assert.AreEqual(false, constant.IsInList('y'));
         }
+
+        [TestMethod]
+        public void ConstantTestGetValuesOfAllConstants()
+        {
+            List<int> expected = new List<int>() { 12, 13, 14 };
+            Constant constant = new Constant();
+            constant.AddToConstants('x', 12);
+            constant.AddToConstants('y', 13);
+            constant.AddToConstants('z', 14);
+
+
+
+            CollectionAssert.AreEqual(expected, constant.GetValuesOfAllConstants(new List<char>() { 'x', 'y', 'z'}));
+        }
     }
 }
