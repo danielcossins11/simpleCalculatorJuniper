@@ -67,5 +67,15 @@ namespace SimpleCalculatorTests
             Constant constant = new Constant();
             Assert.AreEqual(5, constant.GetValueOf('x'));
         }
+
+        [TestMethod]
+        public void ProcessInputTestIfItIsOneConstant()
+        {
+            string input = "    x      ";
+            ProcessInput PI = new ProcessInput(input);
+            char expected = 'x';
+
+            Assert.AreEqual(expected, PI.GetConstant());
+        }
     }
 }

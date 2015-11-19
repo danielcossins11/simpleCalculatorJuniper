@@ -9,6 +9,7 @@ namespace SimpleCalculator
     public class ProcessInput
     {
         public string Input { get; set; }
+        public bool IsGettingConstant { get; set; }
         public ProcessInput(string input)
         {
             Input = input;
@@ -69,6 +70,12 @@ namespace SimpleCalculator
 
         public char GetConstant()
         {
+            string constantInput = Input.Trim();
+            if (constantInput.Length == 1 && Char.IsLetter(char.Parse(constantInput)))
+            {
+                IsGettingConstant = true;
+                return char.Parse(constantInput);
+            }
             string newInput = Input.Split(GetOperator())[0].TrimEnd();
             char op = char.Parse(newInput);
             if (Char.IsLetter(op))
