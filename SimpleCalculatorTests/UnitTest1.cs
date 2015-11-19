@@ -81,7 +81,7 @@ namespace UnitTestProject1
         public void ProcessInputTestGetOperatorWithInvalidInput()
         {
             char expected = '+';
-            string input = "12345 = 54321";
+            string input = "12345 & 54321";
             ProcessInput PI = new ProcessInput(input);
 
             Assert.AreEqual(expected, PI.GetOperator());

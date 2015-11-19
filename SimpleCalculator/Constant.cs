@@ -8,12 +8,29 @@ namespace SimpleCalculator
 {
     public class Constant
     {
-        public char Name { get; set; }
-        public int Number { get; set; }
-        public Constant(char chrName, int numName)
+        public Dictionary<char, int> Constants = new Dictionary<char, int>();
+        //public Constant(char chrName, int numName)
+        //{
+        //    Name = chrName;
+        //    Number = numName;
+        //}
+
+        public void AddToConstants(char constant, int value)
         {
-            Name = chrName;
-            Number = numName;
+            //bool isInList = false;
+            //for(int i=0; i<Constants.Count; i++)
+            //{
+            //    if(Constants[constant] != null)
+            //    {
+            //        isInList = true;
+            //        break;
+            //    }
+            //}
+            //if (!isInList)
+            //{
+            //    Constants.Add(constant, value);
+            //}
+            Constants.Add(constant, value);
         }
     }
 }
