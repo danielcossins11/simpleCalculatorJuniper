@@ -50,5 +50,22 @@ namespace SimpleCalculatorTests
 
             Assert.AreEqual(5, constant.Constants['x']);
         }
+
+        [TestMethod]
+        public void ConstantTestIfCanGetValueOfConstant()
+        {
+            Constant constant = new Constant();
+            constant.AddToConstants('x', 5);
+
+            Assert.AreEqual(5, constant.GetValueOf('x'));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void ConstantTestToMakeSureExceptionThrown()
+        {
+            Constant constant = new Constant();
+            Assert.AreEqual(5, constant.GetValueOf('x'));
+        }
     }
 }
