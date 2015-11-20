@@ -79,10 +79,18 @@ namespace SimpleCalculator
                             }
                         }
                         ProcessInput PI = new ProcessInput(rightside);
-                        Evaluate ev = new Evaluate(PI.GetFirstInputNumber(), PI.GetOperator(), PI.GetSecondInputNumber());
-                        int rightsideResult = ev.Operate();
-                        AddToConstants(char.Parse(leftside), rightsideResult);
-                        return rightsideResult;
+                        try
+                        {
+                            PI.GetOperator();
+                            Evaluate ev = new Evaluate(PI.GetFirstInputNumber(), PI.GetOperator(), PI.GetSecondInputNumber());
+                            int rightsideResult = ev.Operate();
+                            AddToConstants(char.Parse(leftside), rightsideResult);
+                            return rightsideResult;
+                        }
+                        catch
+                        {
+                            return int.Parse(rightside);
+                        }
                     }
                     catch
                     {

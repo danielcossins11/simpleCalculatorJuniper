@@ -31,7 +31,15 @@ namespace SimpleCalculator
                 }
                 catch
                 {
-                   
+                    constant.ChangeExpression(input);
+                    try
+                    {
+                        Console.WriteLine(constant.GetExpression());
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Error! Try again . . .");
+                    }
                 }
                 count++;
             }

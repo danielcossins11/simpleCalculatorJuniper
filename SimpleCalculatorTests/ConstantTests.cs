@@ -101,5 +101,16 @@ namespace SimpleCalculatorTests
 
             Assert.AreEqual(expected, constant.GetExpression());
         }
+
+        [TestMethod]
+        public void ConstantTestGetExpressionWithOneThingOneRightSide()
+        {
+            Constant constant = new Constant();
+            string input = "x = 12";
+            constant.ChangeExpression(input);
+            int expected = 12;
+
+            Assert.AreEqual(expected, constant.GetExpression());
+        }
     }
 }
