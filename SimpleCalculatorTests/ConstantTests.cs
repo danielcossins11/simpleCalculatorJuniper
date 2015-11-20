@@ -80,5 +80,26 @@ namespace SimpleCalculatorTests
 
             Assert.AreEqual(expected, constant.GetExpression());
         }
+
+        [TestMethod]
+        public void ConstantTestIfReturnsValueOfConstant()
+        {
+            Constant constant = new Constant();
+            constant.AddToConstants('x', 12);
+            constant.ChangeExpression("x");
+
+            Assert.AreEqual(12, constant.GetExpression());
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(FormatException))]
+        public void ConstantTestGetExpressionWithIncorrectValues()
+        {
+            string input = "x = y + 1";
+            Constant constant = new Constant(input);
+            int expected = 5;
+
+            Assert.AreEqual(expected, constant.GetExpression());
+        }
     }
 }

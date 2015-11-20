@@ -49,6 +49,10 @@ namespace SimpleCalculator
                 }
                 else
                 {
+                    if (IsInList(char.Parse(leftside)))
+                    {
+                        throw new FormatException();
+                    }
                     var rightside = Input.Split('=')[1].Trim();
                     if(rightside.Length == 0)
                     {
@@ -72,10 +76,6 @@ namespace SimpleCalculator
                                 {
                                     throw new FormatException();
                                 }
-                            }
-                            else
-                            {
-
                             }
                         }
                         ProcessInput PI = new ProcessInput(rightside);
