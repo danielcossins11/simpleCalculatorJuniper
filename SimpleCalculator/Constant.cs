@@ -21,6 +21,73 @@ namespace SimpleCalculator
             Input = input;
         }
 
+        public int GetExpression()
+        {
+            if(Input.Trim().Length == 1)
+            {
+                if (Char.IsLetter(char.Parse(Input.Trim()))) {
+                    if (IsInList(char.Parse(Input.Trim())))
+                    {
+                        return GetValueOf(char.Parse(Input.Trim()));
+                    }
+                    else
+                    {
+                        throw new FormatException();
+                    }
+                }
+                else
+                {
+                    throw new FormatException();
+                }
+            }
+            else
+            {
+                var leftside = Input.Split('=')[0].Trim();
+                if(leftside.Length != 1 || Input.Split('=').Length != 2)
+                {
+                    throw new FormatException();
+                }
+                else
+                {
+                    var rightside = Input.Split('=')[1].Trim();
+                    if(rightside.Length == 0)
+                    {
+                        throw new FormatException();
+                    }
+                    try
+                    {
+                        //for (int i = 0; i < rightside.Length; i++)
+                        //{
+                        //    if (Char.IsLetter(rightside[i]))
+                        //    {
+                        //        if (IsInList(rightside[i]))
+                        //        {
+                        //            rightside = rightside.Insert(rightside[i], "" + GetValueOf(rightside[i]) + "");
+                        //        }
+                        //        else
+                        //        {
+                        //            throw new FormatException();
+                        //        }
+                        //    }
+                        //    else
+                        //    {
+
+                        //    }
+                        //}
+                        ProcessInput PI = new ProcessInput(rightside);
+                        Evaluate ev = new Evaluate(PI.GetFirstInputNumber(), PI.GetOperator(), PI.GetSecondInputNumber());
+                        int rightsideResult = ev.Operate();
+                        AddToConstants(char.Parse(leftside), rightsideResult);
+                        return rightsideResult;
+                    }
+                    catch
+                    {
+                        throw new FormatException();
+                    }
+                }
+            }
+        }
+
         public void ChangeExpression(string input)
         {
             Input = input;

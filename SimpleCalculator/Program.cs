@@ -31,28 +31,7 @@ namespace SimpleCalculator
                 }
                 catch
                 {
-                    //PI.GetConstant();
-                    //if (PI.IsGettingConstant)
-                    //{
-                    //    Console.WriteLine(PI.GetConstant() + "   = " + constant.GetValueOf(PI.GetConstant()));
-                    //}
-                    //else
-                    //{
-                    //    try
-                    //    {
-                    //        constant.AddToConstants(PI.GetConstant(), PI.GetSecondInputNumber());
-                    //        Console.WriteLine("    set " + PI.GetConstant() + " as " + constant.GetValueOf(PI.GetConstant()));
-                    //    }
-                    //    catch
-                    //    {
-                    //        Console.WriteLine("oops!");
-                    //    }
-                    //}
-                    //var constants = constant.GetValuesOfAllConstants(PI.GetAllConstantsInEquation());
-                    //for(int i=0; i<constants.Count; i++)
-                    //{
-
-                    //}
+                   
                 }
                 count++;
             }
