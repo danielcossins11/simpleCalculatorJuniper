@@ -89,6 +89,7 @@ namespace SimpleCalculator
                         }
                         catch
                         {
+                            AddToConstants(char.Parse(leftside), int.Parse(rightside));
                             return int.Parse(rightside);
                         }
                     }
