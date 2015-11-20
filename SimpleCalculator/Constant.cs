@@ -10,6 +10,21 @@ namespace SimpleCalculator
     public class Constant
     {
         public Dictionary<char, int> Constants = new Dictionary<char, int>();
+        public string Input { get; set; }
+        public int Output { get; set; }
+        public Constant()
+        {
+
+        }
+        public Constant(string input)
+        {
+            Input = input;
+        }
+
+        public void ChangeExpression(string input)
+        {
+            Input = input;
+        }
 
         public void AddToConstants(char constant, int value)
         {
@@ -21,10 +36,11 @@ namespace SimpleCalculator
 
         public int GetValueOf(char constant)
         {
-            try {
+            if (IsInList(constant))
+            {
                 return Constants[Char.ToLower(constant)];
             }
-            catch
+            else
             {
                 throw new ArgumentOutOfRangeException();
             }
@@ -40,23 +56,6 @@ namespace SimpleCalculator
             {
                 return false;
             }
-        }
-
-        public List<int> GetValuesOfAllConstants(List<char> constantsList)
-        {
-            List<int> values = new List<int>();
-            for(int i=0; i<constantsList.Count; i++)
-            {
-                if (IsInList(constantsList[i]))
-                {
-                    values.Add(GetValueOf(constantsList[i]));
-                }
-                else
-                {
-
-                }
-            }
-            return values;
         }
     }
 }

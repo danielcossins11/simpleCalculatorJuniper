@@ -8,15 +8,15 @@ namespace SimpleCalculatorTests
     [TestClass]
     public class ConstantTests
     {
-        [TestMethod]
-        public void ProcessInputCheckVariableForConstant()
-        {
-            string input = "x = 5";
-            ProcessInput PI = new ProcessInput(input);
-            char expected = 'x';
+        //[TestMethod]
+        //public void ProcessInputCheckVariableForConstant()
+        //{
+        //    string input = "x = 5";
+        //    ProcessInput PI = new ProcessInput(input);
+        //    char expected = 'x';
 
-            Assert.AreEqual(expected, PI.GetConstant());
-        }
+        //    Assert.AreEqual(expected, PI.GetConstant());
+        //}
 
         //[TestMethod]
         //public void ConstantTestProperties()
@@ -70,26 +70,6 @@ namespace SimpleCalculatorTests
         }
 
         [TestMethod]
-        public void ProcessInputTestIfItIsOneConstant()
-        {
-            string input = "    x      ";
-            ProcessInput PI = new ProcessInput(input);
-            char expected = 'x';
-
-            Assert.AreEqual(expected, PI.GetConstant());
-        }
-
-        [TestMethod]
-        public void ProcessInputTestGetConstantInEquation()
-        {
-            string input = "x = y + z";
-            ProcessInput PI = new ProcessInput(input);
-            List<char> expected = new List<char>() { 'x', 'y', 'z' };
-
-            CollectionAssert.AreEqual(expected, PI.GetAllConstantsInEquation());
-        }
-
-        [TestMethod]
         public void ConstantTestIsInList()
         {
             Constant constant = new Constant();
@@ -97,20 +77,6 @@ namespace SimpleCalculatorTests
 
             Assert.AreEqual(true, constant.IsInList('x'));
             Assert.AreEqual(false, constant.IsInList('y'));
-        }
-
-        [TestMethod]
-        public void ConstantTestGetValuesOfAllConstants()
-        {
-            List<int> expected = new List<int>() { 12, 13, 14 };
-            Constant constant = new Constant();
-            constant.AddToConstants('x', 12);
-            constant.AddToConstants('y', 13);
-            constant.AddToConstants('z', 14);
-
-
-
-            CollectionAssert.AreEqual(expected, constant.GetValuesOfAllConstants(new List<char>() { 'x', 'y', 'z'}));
         }
     }
 }
