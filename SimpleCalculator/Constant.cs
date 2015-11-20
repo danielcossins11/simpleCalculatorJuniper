@@ -63,8 +63,10 @@ namespace SimpleCalculator
                                 if (IsInList(rightside[i]))
                                 {
                                     //this line has the error
-                                    string newRightside = rightside.Insert(rightside[i], "" + GetValueOf(rightside[i]) + "");
-                                    rightside = newRightside;
+                                    //string newRightside = rightside.Insert(i, GetValueOf(rightside[i]).ToString());
+                                    //rightside.Replace(i, 1);
+                                    //s.Remove(3, 2).Insert(3, "ZX");
+                                    rightside = rightside.Remove(i, 1).Insert(i, GetValueOf(rightside[i]).ToString());
                                 }
                                 else
                                 {
