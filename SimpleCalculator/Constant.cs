@@ -56,24 +56,26 @@ namespace SimpleCalculator
                     }
                     try
                     {
-                        //for (int i = 0; i < rightside.Length; i++)
-                        //{
-                        //    if (Char.IsLetter(rightside[i]))
-                        //    {
-                        //        if (IsInList(rightside[i]))
-                        //        {
-                        //            rightside = rightside.Insert(rightside[i], "" + GetValueOf(rightside[i]) + "");
-                        //        }
-                        //        else
-                        //        {
-                        //            throw new FormatException();
-                        //        }
-                        //    }
-                        //    else
-                        //    {
+                        for (int i = 0; i < rightside.Length; i++)
+                        {
+                            if (Char.IsLetter(rightside[i]))
+                            {
+                                if (IsInList(rightside[i]))
+                                {
+                                    //this line has the error
+                                    string newRightside = rightside.Insert(rightside[i], "" + GetValueOf(rightside[i]) + "");
+                                    rightside = newRightside;
+                                }
+                                else
+                                {
+                                    throw new FormatException();
+                                }
+                            }
+                            else
+                            {
 
-                        //    }
-                        //}
+                            }
+                        }
                         ProcessInput PI = new ProcessInput(rightside);
                         Evaluate ev = new Evaluate(PI.GetFirstInputNumber(), PI.GetOperator(), PI.GetSecondInputNumber());
                         int rightsideResult = ev.Operate();
